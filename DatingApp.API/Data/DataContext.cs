@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DatingApp.Models;
+using DatingApp.API.Models;
 
 namespace DatingApp.Data
 {
@@ -12,5 +13,7 @@ namespace DatingApp.Data
         public DataContext(DbContextOptions<DataContext> options):base (options) { }
 
         public DbSet<Value> Values { get; set; }
+
+        public DbSet<User> Users{ get; set; }
     }
 }
