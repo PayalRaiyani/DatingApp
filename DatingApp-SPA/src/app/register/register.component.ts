@@ -8,7 +8,7 @@ import { AuthService } from '../_services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  @Output() cancelRegister= new EventEmitter();
+  @Output() cancelRegister = new EventEmitter();
   
   model: any = {};
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register() {
+  register () {  
     this.authService.register(this.model).subscribe(() => {
       console.log('Registration Successful');
     }, error => {
