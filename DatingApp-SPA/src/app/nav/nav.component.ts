@@ -1,4 +1,6 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
+import { AlertifyService } from '../_services/alertify.service';
 
 import { AuthService } from '../_services/auth.service';
 
@@ -11,7 +13,7 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit(): void {
   }
@@ -19,22 +21,21 @@ export class NavComponent implements OnInit {
   // tslint:disable-next-line: typedef
   login() {
      this.authService.login(this.model).subscribe(next => {
-      console.log('Logged in successfully');
+      this.alertify.success('Logged in successfully');
     // tslint:disable-next-line: no-shadowed-variable
     }, error => {
-      console.log('Failed to login');
+      this.alertify.error(error);
     });
   }
 
   // tslint:disable-next-line: typedef
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !!token;
+     return this.authService.loggedIn();
   }
 
   // tslint:disable-next-line: typedef
   logout(){
     localStorage.removeItem('token');
-    console.log('Logged out');
+    this.alertify.message('Logged out');
   }
 }
