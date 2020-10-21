@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
     <PackageReference Include="microsoft.entityframeworkcore" Version="3.1.8" />
     <PackageReference Include="microsoft.entityframeworkcore.design" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
